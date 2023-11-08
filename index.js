@@ -1,12 +1,13 @@
 function sendMail(){
     var params ={
-        name:document.getElementById("name"),
-        email:document.getElementById("email"),
-        subject:document.getElementById("subject"),
-        message:document.getElementById("message")
+        name:document.getElementById("name").value,
+        email:document.getElementById("email").value,
+        subject:document.getElementById("subject").value,
+        message:document.getElementById("message").value,
+        phone:document.getElementById("phone").value,
     };
     const service_ID = "service_5dzr59r";
-    const template_ID = "template_wb8rhn6";
+    const template_ID = "template_692d77s";
     
     emailjs.send(service_ID, template_ID,params)
        .then(
@@ -15,7 +16,8 @@ function sendMail(){
                 document.getElementById("email").value="";
                 document.getElementById("subject").value="";
                 document.getElementById("message").value="";
+                document.getElementById("phone").value="";
                 console.log(res);
             })
-            .catch(err => {console.log(err)})
-}
+            .catch(err => {console.log(err)});
+} 
